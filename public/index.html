@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Tugboat</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚓</text></svg>" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body, #root { width: 100%; height: 100%; overflow: hidden; }
+      /* The loading screen (src/boot.ts): here, not in App.css, so it paints before any script or stylesheet arrives. */
+      #loading {
+        position: fixed; inset: 0; z-index: 100;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+        background: linear-gradient(#87ceeb, #4a90b8 70%, #1e5a7a);
+        color: #fff; font-family: system-ui, -apple-system, sans-serif;
+        transition: opacity 0.3s;
+      }
+      #loading.done { opacity: 0; pointer-events: none; }
+      #loading h1 { font-size: clamp(44px, 12vw, 80px); font-weight: 900; letter-spacing: 0.15em; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45); }
+      #loading .track { width: min(320px, 70vw); height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.3); overflow: hidden; }
+      #loading .bar { width: 10%; height: 100%; background: #ffd54f; transition: width 0.3s; }
+      #loading p { font-size: 15px; color: rgba(255, 255, 255, 0.8); text-align: center; padding: 0 16px; }
+      #loading.failed .track { display: none; }
+    </style>
+    <script type="module" crossorigin src="./assets/index--y6PO2aR.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-Dw2cE7zH.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-three-Cq7k7I9-.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-react-Gx-u7DOR.js">
+    <link rel="modulepreload" crossorigin href="./assets/game-BScaVO6h.js">
+    <link rel="stylesheet" crossorigin href="./assets/game-BLwjtQky.css">
+    <link rel="modulepreload" crossorigin href="./assets/rapier-CRMHbdBm.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-rapier-DqZVqqw1.js">
+    <link rel="preload" as="fetch" type="application/wasm" crossorigin href="./assets/rapier_wasm2d_bg-PXGIjTFP.wasm">
+  </head>
+  <body>
+    <div id="loading">
+      <h1>TUGBOAT</h1>
+      <div class="track"><div class="bar"></div></div>
+      <p>Loading the harbor…</p>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
